@@ -44,7 +44,11 @@ def transpose(mat):
 
 def merge(mat):
 
+'''
+significance of changed : New 2 is added in the matrix if and only if there is a change in the matrix
+If I perform a left move and the matrix remains as it is then there is no need to add a new 2 in the matrix
 
+'''
     changed = False
     for i in range(4):
         for j in range(3):
@@ -94,7 +98,7 @@ def move_up(grid):
     final_grid = transpose(new_grid)
     return final_grid,changed
 
-# LEFT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 
 def move_down(grid):
     transposed_grid = transpose(grid)
