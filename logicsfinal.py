@@ -9,7 +9,9 @@ def start_game():
 
 def add_new_2(mat):
     
-    r = random.randint(0,3)
+    r = random.randint(0,3) 
+    # The line r = random.randint(0, 3) is a Python code snippet that generates a random integer
+    # between 0 (inclusive) and 3 (inclusive) using the randint function from the random module
     c = random.randint(0,3)
     while(mat[r][c] != 0):
         r = random.randint(0,3)
@@ -41,7 +43,7 @@ def transpose(mat):
     return new_mat
 
 def merge(mat):
-# actually jo merge ka logic hai vo keval left move ke hisaab se banaya hai
+
 
     changed = False
     for i in range(4):
@@ -51,11 +53,17 @@ def merge(mat):
                 mat[i][j+1] = 0
                 changed = True
 
-                # agar "if" ke andar aaya matlab change kar raha hai kyuki merging ho rahi hai
+# if the "if" statement is executed, we have changed the matrix, hence make changed = True
+
+# also, this logic of merge is designed mainly for left move
+
+               
 
     return mat,changed
             
 def compress(mat):
+
+    # bring the non zero numbers closer to each other
     
     changed = False
     new_mat = []
@@ -69,7 +77,8 @@ def compress(mat):
                 new_mat[i][pos] = mat[i][j]
                 
                 # pos denotes column number of the element in new_matrix so if pos=j means no change happened
-                # cause if pos = j, then matrix jaisa pehle tha, vaisa hi rahega
+                # cause if pos = j, then the original state of the matrix is retained
+                
 
                 if j!= pos:
                     changed = True
@@ -84,6 +93,8 @@ def move_up(grid):
     new_grid,temp = compress(new_grid)
     final_grid = transpose(new_grid)
     return final_grid,changed
+
+# LEFT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 def move_down(grid):
     transposed_grid = transpose(grid)
