@@ -3,6 +3,7 @@
 from tkinter import Frame, Label, CENTER
 
 # Frame, Label, CENTER are classes
+# Frame and Label are classes from the tkinter library used for creating GUI elements like frames and labels
 
 import logicsfinal 
 import constants as c
@@ -12,32 +13,55 @@ import constants as c
 
 class Game2048(Frame):
 
-# frame allows you to create a box kind of thing where you can place all your widgets
+    # frame allows you to create a box kind of thing where you can place all your widgets
+    '''
+    In short, widgets in Tkinter are graphical elements or components that can be used to build
+    graphical user interfaces (GUIs) for your Python applications. Widgets include items such as 
+    buttons, labels, text entry fields, checkboxes, radio buttons, and more.
+    These widgets allow you to interact with the user and display information within a window or frame,
+    making it easier to create interactive and user-friendly applications.
+    '''
 
     def __init__(self):
         Frame.__init__(self) # a frame is created
 
+        # Calls the constructor of the parent class (Frame) to create a GUI window.
+
 # frame class needs an object on which it will be creating a frame, self is
 # that object
         self.grid()
+# Initializes the grid manager for the frame, allowing widgets to be organized in a grid layout.
+    '''
+    A grid is a visual layout or structure used in graphical user interfaces (GUIs) to organize and position graphical elements (widgets)
+    such as buttons, labels, and text fields.
+    It is primarily used for the presentation and arrangement of GUI components within a window or frame.
+    The grid defines rows and columns, where widgets are placed at specific positions within this layout.
+    '''
 # Tkinter has grid manager which allows to create all the widgets in the form
 # of grid, so this frame looks like a grid now because of the above line
 
         self.master.title('2048')
 # master is the boundary, title is 2048
+# Sets the title of the game window to "2048".
 
         self.master.bind("<Key>", self.key_down)
 
+# Binds the "Key" event to the self.key_down method, which handles user input.
+
 # if any key is pressed, I will implement self.keydown function
+
+# Creates a dictionary self.commands that maps key presses to specific movement
+# functions (move_up, move_down, move_left, move_right) defined in the logicsfinal module.
+
         self.commands = {c.KEY_UP: logicsfinal.move_up, c.KEY_DOWN: logicsfinal.move_down,
                          c.KEY_LEFT: logicsfinal.move_left, c.KEY_RIGHT: logicsfinal.move_right
                         }
 
-# LogicsFinal apan ne banayi hai
-# if w is pressed move up, s is pressed move down
 
-        
-        
+# if w is pressed move up, s is pressed move down, a for left and d for right -> check how to use arrows instead!
+
+    # Initializes an empty list self.grid_cells to store references to the GUI grid cells.    
+       
         self.grid_cells = []
 
 # we will add some cells in this grid
@@ -46,9 +70,17 @@ class Game2048(Frame):
 
 #  due to above line UI was created 
 
+# Calls the init_grid method to create the game grid in the GUI.
+
 # it will add the grid cells in the grid
 
         self.init_matrix()
+
+# Calls the init_matrix method to initialize the game matrix.
+
+# The initial configuration of the 2048 game typically consists of a 4x4 grid 
+
+# (though variations with different grid sizes exist) with two randomly placed tiles containing the value 2. Rest of the cells are 0
 
 # first starts the game,so you have a 4 x 4 matrix will all zero entries and now add 2 new 2's in this matrix
 #  
@@ -56,6 +88,33 @@ class Game2048(Frame):
 # due to above line matrix was created with initially 2 values as 2
 
 # to create 4x4 matrix and add new 2's in it
+
+'''
+
+The line self.update_grid_cells() is essential in the 2048 game code for updating the graphical representation of the game grid
+based on the current state of the game matrix.
+This line is necessary for the following reasons:
+
+Synchronization with Game State: The game matrix (a 2D array) stores the numerical values and state of the game.
+Changes in the game state, such as moving tiles or merging them, are reflected in this matrix.
+To ensure that the graphical representation matches the game's internal state, the update_grid_cells function is called after each move.
+
+
+
+Updating the User Interface: The update_grid_cells function iterates through the elements of the game matrix
+and updates the corresponding labels and colors in the GUI grid cells.
+It changes the text and background colors of the labels to represent the current state of the game matrix. 
+Without this update, the GUI would not visually reflect the game's progress.
+
+
+
+
+User Feedback: It provides immediate feedback to the player by displaying the changes made in the game matrix on the screen. 
+When tiles are merged or moved, the player can see the results of their actions in real-time.
+
+In summary, self.update_grid_cells() is necessary to keep the graphical user interface synchronized with the game's internal state,
+ ensuring that the player sees an accurate representation of the game board after each move.
+'''
 
         self.update_grid_cells()
 
@@ -67,6 +126,8 @@ class Game2048(Frame):
 
         self.mainloop()
 
+# Starts the Tkinter main event loop, which runs the game until the user closes the window
+
 # it actually runs the program
 
     def init_grid(self):
@@ -74,7 +135,7 @@ class Game2048(Frame):
                            width=c.SIZE, height=c.SIZE)
 # frame of 400 x 400 created inside the outside frame 
 # so a frame was created which was initially a grid only, inside this grid
-# you have created another frame of size 400 x 400 so actuaaly inside a grid \
+# you have created another frame of size 400 x 400 so actuaaly inside a grid 
 # there is another grid, so now you need to add cells in this grid
 
         background.grid()
