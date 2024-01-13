@@ -31,18 +31,18 @@ class Game2048(Frame):
 # that object
         self.grid()
 # Initializes the grid manager for the frame, allowing widgets to be organized in a grid layout.
-    '''
-    A grid is a visual layout or structure used in graphical user interfaces (GUIs) to organize and position graphical elements (widgets)
-    such as buttons, labels, and text fields.
-    It is primarily used for the presentation and arrangement of GUI components within a window or frame.
-    The grid defines rows and columns, where widgets are placed at specific positions within this layout.
-    '''
+        '''
+        A grid is a visual layout or structure used in graphical user interfaces (GUIs) to organize and position graphical elements (widgets)
+        such as buttons, labels, and text fields.
+        It is primarily used for the presentation and arrangement of GUI components within a window or frame.
+        The grid defines rows and columns, where widgets are placed at specific positions within this layout.
+        '''
 # Tkinter has grid manager which allows to create all the widgets in the form
 # of grid, so this frame looks like a grid now because of the above line
 
         self.master.title('2048')
-# master is the boundary, title is 2048
-# Sets the title of the game window to "2048".
+    # master is the boundary, title is 2048
+    # Sets the title of the game window to "2048".
 
         self.master.bind("<Key>", self.key_down)
 
@@ -89,32 +89,32 @@ class Game2048(Frame):
 
 # to create 4x4 matrix and add new 2's in it
 
-'''
+        '''
 
-The line self.update_grid_cells() is essential in the 2048 game code for updating the graphical representation of the game grid
-based on the current state of the game matrix.
-This line is necessary for the following reasons:
+        The line self.update_grid_cells() is essential in the 2048 game code for updating the graphical representation of the game grid
+        based on the current state of the game matrix.
+        This line is necessary for the following reasons:
 
-Synchronization with Game State: The game matrix (a 2D array) stores the numerical values and state of the game.
-Changes in the game state, such as moving tiles or merging them, are reflected in this matrix.
-To ensure that the graphical representation matches the game's internal state, the update_grid_cells function is called after each move.
-
-
-
-Updating the User Interface: The update_grid_cells function iterates through the elements of the game matrix
-and updates the corresponding labels and colors in the GUI grid cells.
-It changes the text and background colors of the labels to represent the current state of the game matrix. 
-Without this update, the GUI would not visually reflect the game's progress.
+        Synchronization with Game State: The game matrix (a 2D array) stores the numerical values and state of the game.
+        Changes in the game state, such as moving tiles or merging them, are reflected in this matrix.
+        To ensure that the graphical representation matches the game's internal state, the update_grid_cells function is called after each move.
 
 
 
+        Updating the User Interface: The update_grid_cells function iterates through the elements of the game matrix
+        and updates the corresponding labels and colors in the GUI grid cells.
+        It changes the text and background colors of the labels to represent the current state of the game matrix. 
+        Without this update, the GUI would not visually reflect the game's progress.
 
-User Feedback: It provides immediate feedback to the player by displaying the changes made in the game matrix on the screen. 
-When tiles are merged or moved, the player can see the results of their actions in real-time.
 
-In summary, self.update_grid_cells() is necessary to keep the graphical user interface synchronized with the game's internal state,
- ensuring that the player sees an accurate representation of the game board after each move.
-'''
+
+
+        User Feedback: It provides immediate feedback to the player by displaying the changes made in the game matrix on the screen. 
+        When tiles are merged or moved, the player can see the results of their actions in real-time.
+
+        In summary, self.update_grid_cells() is necessary to keep the graphical user interface synchronized with the game's internal state,
+        ensuring that the player sees an accurate representation of the game board after each move.
+        '''
 
         self.update_grid_cells()
 
