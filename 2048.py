@@ -62,7 +62,7 @@ class Game2048(Frame):
                         }
 
 
-# if w is pressed move up, s is pressed move down, a for left and d for right 
+# if w is pressed move up, s is pressed move down, a for left and d for right
 
     # Initializes an empty list self.grid_cells to store references to the GUI grid cells.    
        
