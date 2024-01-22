@@ -1,0 +1,51 @@
+
+
+Code Flow:
+
+1.Initialization (__init__ method):
+
+The program starts by creating an instance of the Game2048 class: gamegrid = Game2048().
+The __init__ method of the Game2048 class is automatically called.
+In the __init__ method, the Tkinter frame is initialized, key bindings are set up, and initializations are performed.
+The self.mainloop() method is called at the end, starting the Tkinter event loop.
+
+
+2.Tkinter Event Loop (mainloop):
+
+The mainloop() method enters the Tkinter main event loop, where it waits for user events (such as key presses, mouse clicks).
+The program remains in this loop until the user closes the window.
+
+3.Key Press Event (key_down method):
+
+When a key is pressed, the Tkinter event system triggers a key press event. 
+Relevant line : self.master.bind("<Key>", self.key_down)
+The bound function, self.key_down, is then called to handle the key press.
+
+4. Key Down Handling (key_down method):
+
+The key_down method is responsible for handling key presses.
+It retrieves the pressed key using repr(event.char).
+It checks if the pressed key is a valid movement command ('w', 's', 'a', 'd').
+
+5. Movement Commands (self.commands dictionary):
+
+If the pressed key is a valid movement command, the corresponding function from the logicsfinal module is retrieved using self.commands[repr(event.char)].
+For example, if 'w' is pressed, it retrieves logicsfinal.move_up.
+The retrieved function is then called with the current game matrix (self.matrix) as an argument.
+The function returns the updated game matrix and a boolean value (changed) indicating whether any changes were made.
+
+6. Update UI and Add New 2 (update_grid_cells and add_new_2 methods):
+
+If there were changes in the game state (i.e., changed is True), the UI is updated using self.update_grid_cells().
+The self.update_grid_cells() method configures the labels in the grid cells based on the updated game matrix.
+A new 2 is added to the matrix using logicsfinal.add_new_2(self.matrix).
+
+7. Check Game State and Display Messages:
+
+The code then checks the current state of the game using logicsfinal.get_current_state(self.matrix).
+If the player has won or lost, it updates specific grid cells with messages ('You Win!' or 'You Lose!').
+
+8. Repeat:
+
+The program continues to wait for user input and events in the Tkinter event loop.
+The process repeats as the user interacts with the game by pressing keys.
