@@ -173,6 +173,8 @@ class Game2048(Frame):
                 t = Label(master=cell, text="",
                           bg=c.BACKGROUND_COLOR_CELL_EMPTY,
                           justify=CENTER, font=c.FONT, width=5, height=2)
+# justify=CENTER: Aligns the text horizontally within the label. CENTER is a constant that ensures the text is centered.
+                
 # master=cell: Specifies the parent widget for the label. In this case, it's the cell frame, indicating that the label (t) is a child of the cell frame.
 # text="": Sets the initial text content of the label to an empty string
 # inside the cell, you are adding a label, label is another widget which is used
