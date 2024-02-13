@@ -30,7 +30,7 @@ class Game2048(Frame):
 # frame class needs an object on which it will be creating a frame, self is
 # that object
         self.grid()
-# Initializes the grid manager for the frame, allowing widgets to be organized in a grid layout.
+# Initializes the grid manager for the frame, allowing widgets to be organized in a grid layout. In Tkinter, the grid is a geometry manager that allows you to organize widgets in a tabular structure of rows and columns. 
 
         '''
         The Grid geometry manager puts the widgets in a 2-dimensional table. The master widget is split into a number of rows and columns, and each “cell” in the resulting table can hold a widget. 
